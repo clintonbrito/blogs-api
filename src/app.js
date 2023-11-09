@@ -1,6 +1,8 @@
 const express = require('express');
 
-// ...
+// descobrindo em qual ambiente a aplicação está rodando
+const env = process.env.NODE_ENV;
+console.log(env);
 
 const app = express();
 
