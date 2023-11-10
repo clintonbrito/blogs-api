@@ -15,13 +15,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       user_id: {
-        type: Sequelize.INTEGER //foreign key
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users', // nome da tabela e não da model
+          key: 'id',
+        }
       },
       published: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
       },
       updated: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },
