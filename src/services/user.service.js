@@ -1,6 +1,22 @@
 const { User } = require('../models');
 const createToken = require('../utils/createToken');
 
+const findAll = async () => {
+  const users = await User.findAll({
+    attributes: { exclude: ['password'] },
+  });
+
+  return { status: 200, data: users };
+};
+
+const findByPk = async (id) => {
+  const user = await User.findByPk(id, {
+    attributes: { exclude: ['password'] },
+  });
+
+  return { status: 200, data: user };
+};
+
 const create = async (displayName, email, password, image) => {
   const userAlreadyExists = await User.findOne(({
     where: { email },
@@ -23,5 +39,7 @@ const create = async (displayName, email, password, image) => {
 };
 
 module.exports = {
+  findAll,
+  findByPk,
   create,
 };
