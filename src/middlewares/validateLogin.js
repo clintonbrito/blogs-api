@@ -1,9 +1,9 @@
 const { loginSchema } = require('./joiSchemas');
 
-const validateLogin = async (req, res, next) => {
+const validateLogin = (req, res, next) => {
   try {
     const login = req.body;
-    await loginSchema.validate(login);
+    loginSchema.validate(login);
     next();
   } catch (error) {
     return res.status(400).json({ message: error.message });

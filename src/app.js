@@ -1,5 +1,6 @@
 const express = require('express');
 const loginRouter = require('./routes/login.router');
+const userRouter = require('./routes/user.router');
 
 // descobrindo em qual ambiente a aplicação está rodando
 const env = process.env.NODE_ENV;
@@ -15,6 +16,7 @@ app.get('/', (_request, response) => {
 app.use(express.json());
 
 app.use('/login', loginRouter);
+app.use('/user', userRouter);
 
 // ...
 
