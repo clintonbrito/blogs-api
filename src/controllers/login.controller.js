@@ -6,7 +6,7 @@ const login = async (req, res) => {
   const token = await loginService.login(email, password);
 
   return res.status(token.status).json(token.data);
-}
+};
 
 module.exports = {
   login,
