@@ -1,7 +1,9 @@
 const express = require('express');
+
 const loginRouter = require('./routes/login.router');
 const userRouter = require('./routes/user.router');
 const categoryRoutes = require('./routes/category.router');
+const postRoutes = require('./routes/post.router');
 
 // descobrindo em qual ambiente a aplicação está rodando
 const env = process.env.NODE_ENV;
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use('/login', loginRouter);
 app.use('/user', userRouter);
 app.use('/categories', categoryRoutes);
+app.use('/post', postRoutes);
 
 // ...
 
