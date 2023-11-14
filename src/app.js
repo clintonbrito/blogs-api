@@ -5,7 +5,7 @@ const categoryRoutes = require('./routes/category.router');
 
 // descobrindo em qual ambiente a aplicação está rodando
 const env = process.env.NODE_ENV;
-console.log(env);
+console.log('NODE_ENV:', env);
 
 const app = express();
 
