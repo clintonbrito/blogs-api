@@ -23,7 +23,7 @@ const create = async (displayName, email, password, image) => {
   }));
 
   if (userAlreadyExists) {
-    return { statusCode: 409, data: { message: 'User already registered' } };
+    return { status: 409, data: { message: 'User already registered' } };
   }
 
   const newUser = await User.create({ displayName, email, password, image });

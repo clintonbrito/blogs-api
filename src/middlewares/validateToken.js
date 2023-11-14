@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const SECRET_KEY = process.env.SECRET_KEY || 'insiraOSegredoCorreto';
+const SECRET_KEY = process.env.JWT_SECRET || 'insiraOSegredoCorreto';
 
 const filteredToken = (rawToken) => rawToken.split(' ')[1];
 
@@ -14,12 +14,10 @@ const auth = (req, res, next) => {
 
   try {
     const token = filteredToken(authorization);
-
-    if (!token) {
-      throw new Error();
-    }
+    console.log('segundo console:', token);
 
     const user = jwt.verify(token, SECRET_KEY);
+    console.log('terceiro console:', user);
     req.user = user;
     next();
   } catch (err) {
